@@ -1,3 +1,7 @@
+<script>
+	import { base } from '$app/paths';
+</script>
+
 <head>
 	<title>Truong's portfolio website</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -25,11 +29,11 @@
 				<span class="firstName">Son Truong </span><span class="surName">Nguyen</span>
 			</h2>
 			<ul>
-				<li><a href="/">Main</a></li>
-				<li><a href="/about">About Me</a></li>
-				<li><a href="/photos">Photos</a></li>
-				<li><a href="/contact">Contact Me</a></li>
-				<li><a href="/funjoke">Fun Joke</a></li>
+				<li><a href="{base}/">Main</a></li>
+				<li><a href="{base}/about">About Me</a></li>
+				<li><a href="{base}/photos">Photos</a></li>
+				<li><a href="{base}/contact">Contact Me</a></li>
+				<li><a href="{base}/funjoke">Fun Joke</a></li>
 			</ul>
 		</nav>
 

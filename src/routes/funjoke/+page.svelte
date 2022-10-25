@@ -14,7 +14,7 @@
 	}
 
 	function renderJoke(data: Joke) {
-		console.log(data)
+		// console.log(data)
 		setup = data.setup;
 		punchline = data.punchline;
 		error = '';
