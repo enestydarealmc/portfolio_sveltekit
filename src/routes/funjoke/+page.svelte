@@ -1,6 +1,11 @@
 <script type="text/typescript">
 	export {};
 
+	let loaded = false;
+	let setup: string? = null;
+	let punchline: string? = null;
+	let error: string? = null;
+
 	interface Joke {
 		id: number;
 		type: string;
@@ -8,45 +13,36 @@
 		punchline: string;
 	}
 
-	document.addEventListener('click', function (event) {
-		// Checking if the button was clicked
-		if (!(event.target! as HTMLButtonElement).matches('#button')) return;
+	function renderJoke(data: Joke) {
+		console.log(data)
+		setup = data.setup;
+		punchline = data.punchline;
+		error = '';
+		loaded = true;
+	}
 
-		/*
-      Here we send a request to the Joke API
-      Then process the response into JSON
-      Then pass the data to our renderJoke function.
-      */
+	function renderError() {
+		error = 'Whoops, something went wrong. Please try again later!';
+		loaded = true;
+	}
+
+	function getJoke() {
+		console.log('asdf')
 		fetch('https://official-joke-api.appspot.com/random_joke')
 			.then((response) => response.json())
 			.then((data: Joke) => renderJoke(data))
 			.catch(() => renderError());
-	});
-
-	function renderJoke(data: Joke) {
-		// Get text elements
-		const setup = document.getElementById('setup')!;
-		const punchline = document.getElementById('punchline')!;
-		const error = document.getElementById('error')!;
-
-		// Hide error and render jokes
-		error.innerHTML = '';
-		setup.innerHTML = data.setup;
-		punchline.innerHTML = data.punchline;
-	}
-
-	function renderError() {
-		const error = document.getElementById('error')!;
-		error.innerHTML = 'Whoops, something went wrong. Please try again later!';
 	}
 </script>
 
 <div class="content">
 	<h1>Some random jokes as you click the button</h1>
-	<button id="button" type="button">Get Joke</button>
-	<p id="setup" />
-	<p id="punchline" />
-	<p id="error" />
+	<button id="button" type="button" on:click={getJoke}>Get Joke</button>
+	{#if loaded}
+		<p id="setup">{ setup }</p>
+		<p id="punchline">{ punchline }</p>
+		<p id="error">{ error }</p>
+	{/if}
 </div>
 
 <style>
