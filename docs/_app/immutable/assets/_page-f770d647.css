@@ -1,1 +1,12 @@
-.svelte-1pv8cm9{padding:0;margin:0;font-family:Josefin Sans,sans-serif;box-sizing:border-box}.content.svelte-1pv8cm9{position:absolute;top:30%;left:8%;width:55vw}
+.svelte-1pv8cm9 {
+	padding: 0;
+	margin: 0;
+	font-family: Josefin Sans, sans-serif;
+	box-sizing: border-box;
+}
+.content.svelte-1pv8cm9 {
+	position: absolute;
+	top: 30%;
+	left: 8%;
+	width: 55vw;
+}
