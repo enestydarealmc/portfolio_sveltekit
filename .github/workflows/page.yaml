@@ -14,11 +14,11 @@ jobs:
           cache: npm
       - run: npm install --frozen-lockfile
 
-      - name: test
-        run: |
-          set -euxo pipefail
-          npm run lint
-          npm run format
+      # - name: test
+      #   run: |
+      #     set -euxo pipefail
+      #     npm run lint
+      #     npm run format
       - name: Build
         run: npm run build
 
