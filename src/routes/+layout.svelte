@@ -56,7 +56,7 @@
 	.navBar {
 		height: 100vh;
 		width: 100%;
-		background-image: url("{base}/bg.jpg");
+		background-image: url(../../../bg.jpg);
 		background-size: cover;
 		background-position: center;
 	}
